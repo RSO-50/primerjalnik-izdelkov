@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: primerjalnikIzdelkov-deployment
+  name: primerjalnik-izdelkov-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: primerjalnikIzdelkov
+      app: primerjalnik-izdelkov
   template:
     metadata:
       labels:
-        app: primerjalnikIzdelkov
+        app: primerjalnik-izdelkov
     spec:
       containers:
-        - image: rsoskupina50/izdelki:2022-12-10-17-37-27
-          name: primerjalnikIzdelkov
+        - image: rsoskupina50/primerjavaizdelkov:2022-12-26-21-48-59
+          name: primerjalnik-izdelkov
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
               value: jdbc:postgresql://mouse.db.elephantsql.com/zzgixwih
@@ -44,7 +44,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: primerjalnikIzdelkov
+  name: primerjalnik-izdelkov
 spec:
   type: ClusterIP
   ports:
@@ -52,4 +52,4 @@ spec:
       protocol: TCP
       targetPort: server
   selector:
-    app: primerjalnikIzdelkov
+    app: primerjalnik-izdelkov
