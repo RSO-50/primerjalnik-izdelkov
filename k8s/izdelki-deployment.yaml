@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: izdelki-deployment
+  name: primerjalnikIzdelkov-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: izdelki
+      app: primerjalnikIzdelkov
   template:
     metadata:
       labels:
-        app: izdelki
+        app: primerjalnikIzdelkov
     spec:
       containers:
         - image: rsoskupina50/izdelki:2022-12-10-17-37-27
-          name: izdelki
+          name: primerjalnikIzdelkov
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://mouse.db.elephantsql.com/lsldpfha
+              value: jdbc:postgresql://mouse.db.elephantsql.com/zzgixwih
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: lsldpfha
+              value: zzgixwih
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              value: Tl_p3nTbjdPUHWUa8V4OFXtM1YQtkf8w
+              value: XwMg-3JIpwLWNylgwAP0bcQk3_dZmVFa
           ports:
             - containerPort: 8080
               name: server
@@ -44,7 +44,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: izdelki
+  name: primerjalnikIzdelkov
 spec:
   type: ClusterIP
   ports:
@@ -52,4 +52,4 @@ spec:
       protocol: TCP
       targetPort: server
   selector:
-    app: izdelki
+    app: primerjalnikIzdelkov

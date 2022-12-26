@@ -1,1 +1,1 @@
-INSERT INTO izdelki_metadata (cena, naziv, trgovina, ocena) VALUES (150, 'Logitech C925e', 'Hofer', 10);
+INSERT INTO primerjalnikIzdelkov_metadata (cena, naziv, trgovina, ocena) VALUES (150, 'Logitech C925e', 'Hofer', 10);

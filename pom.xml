@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>si.rsvo</groupId>
-    <artifactId>izdelki</artifactId>
+    <artifactId>primerjalnikIzdelkov</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
@@ -110,22 +110,22 @@
 
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>izdelki-api</artifactId>
+                <artifactId>primerjalnikIzdelkov-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>izdelki-models</artifactId>
+                <artifactId>primerjalnikIzdelkov-models</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>izdelki-services</artifactId>
+                <artifactId>primerjalnikIzdelkov-services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.rsvo</groupId>
-                <artifactId>izdelki-lib</artifactId>
+                <artifactId>primerjalnikIzdelkov-lib</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -1,4 +1,4 @@
-# RSO: Izdelki - mikrostoritev
+# RSO: Primerjevalnik izdelkov - mikrostoritev
 
 ## Prerequisites
 
