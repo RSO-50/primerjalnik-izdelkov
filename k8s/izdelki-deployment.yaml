@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: izdelki-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: izdelki
+  template:
+    metadata:
+      labels:
+        app: izdelki
+    spec:
+      containers:
+        - image: rsoskupina50/izdelki:2022-12-10-17-37-27
+          name: izdelki
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://mouse.db.elephantsql.com/lsldpfha
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: lsldpfha
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              value: Tl_p3nTbjdPUHWUa8V4OFXtM1YQtkf8w
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
+          readinessProbe:
+              httpGet:
+                path: /health/ready
+                port: server
+              initialDelaySeconds: 20
+              periodSeconds: 3
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: izdelki
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: izdelki
