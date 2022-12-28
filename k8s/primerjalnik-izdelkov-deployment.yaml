@@ -13,11 +13,11 @@ spec:
         app: primerjalnik-izdelkov
     spec:
       containers:
-        - image: rsoskupina50/primerjavaizdelkov:2022-12-26-21-48-59
+        - image: rsoskupina50/primerjavaizdelkov:2022-12-28-16-52-27
           name: primerjalnik-izdelkov
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://mouse.db.elephantsql.com/zzgixwih
+              value: jdbc:postgresql://snuffleupagus.db.elephantsql.com/zzgixwih
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: zzgixwih
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
