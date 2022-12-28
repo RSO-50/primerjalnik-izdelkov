@@ -1,5 +1,5 @@
 kumuluzee:
-  name: izdelki-service
+  name: primerjalnikIzdelkov-service
   env:
     name: dev
   version: 1.0.0
@@ -8,20 +8,20 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/izdelkiMetadataDS
-      connection-url: jdbc:postgresql://172.19.0.2:5432/izdelki
+    - jndi-name: jdbc/primerjalnikIzdelkovMetadataDS
+      connection-url: jdbc:postgresql://172.19.0.2:5432/primerjalnikIzdelkov
       username: dbuser
       password: postgres
       max-pool-size: 20
   health:
     checks:
       data-source-health-check:
-        jndi-name: jdbc/izdelkiMetadataDS
+        jndi-name: jdbc/primerjalnikIzdelkovMetadataDS
         type: liveness
   metrics:
     web-instrumentation:
-      - name: izdelki-endpoint
-        url-pattern: /v1/izdelki/*
+      - name: primerjalnikIzdelkov-endpoint
+        url-pattern: /v1/primerjalnikIzdelkov/*
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                           <Configuration name="comments">

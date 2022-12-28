@@ -36,7 +36,7 @@ public class primerjalnikIzdelkovMetadataResource {
     @Operation(description = "Get all izdelki.", summary = "Get all metadata")
     @APIResponses({
             @APIResponse(responseCode = "200",
-                    description = "List of izdelki",
+                    description = "List of primerjenih izdelkov",
                     content = @Content(schema = @Schema(implementation = primerjalnikIzdelkovMetadata.class, type = SchemaType.ARRAY)),
                     headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
             )})
