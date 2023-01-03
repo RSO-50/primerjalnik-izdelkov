@@ -1,4 +1,4 @@
-package si.rsvo.primerjalnikIzdelkov.api.v1.health;
+package si.rsvo.primerjalnikIzdelkov.api.v1.interceptors.health;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;

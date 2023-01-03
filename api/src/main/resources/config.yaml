@@ -15,13 +15,14 @@ kumuluzee:
       max-pool-size: 20
   health:
     checks:
-      data-source-health-check:
-        jndi-name: jdbc/primerjalnikIzdelkovMetadataDS
-        type: liveness
+      http-health-check:
+        connection-url: http://20.73.139.35/
   metrics:
     web-instrumentation:
       - name: primerjalnikIzdelkov-endpoint
         url-pattern: /v1/primerjalnikIzdelkov/*
+  swagger:
+    base-url: http://20.73.139.35/primerjalnik-izdelkov/
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                           <Configuration name="comments">
