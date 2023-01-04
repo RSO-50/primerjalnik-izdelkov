@@ -58,12 +58,26 @@ public class primerjalnikIzdelkovMetadataResource {
             )})
     @GET
     @Path("/byTrgovina/{trgovina}")
-    public Response getUporabnikovaShrambaIzdelkovByUsername(@Parameter(description = "Trgovina izdelka.", required = true)
+    public Response getIzdelekByTrgovina(@Parameter(description = "Trgovina izdelka.", required = true)
                                                              @PathParam("trgovina") String trgovina) {
 
         return primerjalnikIzdelkovMetadataBean.getTrgovinaByTrgovina(trgovina);
     }
 
+    @Operation(description = "Get izdelki by tip", summary = "Get all izdelki by given tip")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "List of izdelki",
+                    content = @Content(schema = @Schema(implementation = primerjalnikIzdelkovMetadata.class, type = SchemaType.ARRAY)),
+                    headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
+            )})
+    @GET
+    @Path("/byTip/{tip}")
+    public Response getIzdelekByTip(@Parameter(description = "Tip izdelka.", required = true)
+                                                             @PathParam("tip") String tip) {
+
+        return primerjalnikIzdelkovMetadataBean.getTipByTip(tip);
+    }
 
 
 }

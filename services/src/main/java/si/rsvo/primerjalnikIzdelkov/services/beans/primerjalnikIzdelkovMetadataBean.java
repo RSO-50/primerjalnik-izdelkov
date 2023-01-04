@@ -66,6 +66,24 @@ public class primerjalnikIzdelkovMetadataBean {
         }
     }
 
+    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+    @CircuitBreaker(requestVolumeThreshold = 3)
+    @Fallback(fallbackMethod = "getTipByTipFallback")
+    public Response getTipByTip(String tip) {
+
+        log.info("Calling users service: getting tip.");
+
+        try {
+            return httpClient
+                    .target(baseUrl + "izdelki/v1/izdelki/byTip/" + tip)
+                    .request().get();
+        }
+        catch (WebApplicationException | ProcessingException e) {
+            log.severe(e.getMessage());
+            throw new InternalServerErrorException(e);
+        }
+    }
+
     public List<primerjalnikIzdelkovMetadata> getizdelkiMetadata() {
 
         TypedQuery<primerjalnikIzdelkovMetadataEntity> query = em.createNamedQuery(
@@ -78,6 +96,9 @@ public class primerjalnikIzdelkovMetadataBean {
     }
 
     public Response getTrgovinaByTrgovinaFallback(String trgovina) {
+        return null;
+    }
+    public Response getTipByTipFallback(String tip) {
         return null;
     }
     private void beginTx() {
