@@ -80,10 +80,10 @@ public class primerjalnikIzdelkovMetadataResource {
     }
 
     @GET
-    @Path("/recept/{hrana}")
-    public Response recept(@Parameter(description = "hrana", required = true) @PathParam("hrana") String hrana) {
+    @Path("/recept/{prefix}")
+    public Response recept(@Parameter(description = "Hrana", required = true) @PathParam("prefix") String prefix) {
 
-        return primerjalnikIzdelkovMetadataBean.recept(hrana);
+        return primerjalnikIzdelkovMetadataBean.recept(prefix);
     }
 
 

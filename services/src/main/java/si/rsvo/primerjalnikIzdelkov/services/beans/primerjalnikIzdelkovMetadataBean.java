@@ -96,13 +96,13 @@ public class primerjalnikIzdelkovMetadataBean {
 
     }
 
-    public Response recept(String hrana) {
+    public Response recept(String prefix) {
 
         log.info("Calling currency API from RapidAPI marketplace");
 
         try {
             WebTarget target = httpClient.target("https://tasty.p.rapidapi.com/recipes/auto-complete")
-                    .queryParam("hrana", hrana);
+                    .queryParam("prefix", prefix);
 
             Response response = target.request()
                     .header("X-RapidAPI-Key", "89fb19875bmsh587f5c2b402a175p14f26fjsnb4cb50778b70")
