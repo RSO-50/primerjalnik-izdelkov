@@ -13,7 +13,7 @@ spec:
         app: primerjalnik-izdelkov
     spec:
       containers:
-        - image: rsoskupina50/primerjavaizdelkov:2023-01-04-23-27-34
+        - image: rsoskupina50/primerjavaizdelkov:2023-01-05-11-57-59
           name: primerjalnik-izdelkov
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL

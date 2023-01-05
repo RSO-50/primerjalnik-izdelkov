@@ -79,11 +79,12 @@ public class primerjalnikIzdelkovMetadataResource {
         return primerjalnikIzdelkovMetadataBean.getTipByTip(tip);
     }
 
-    @POST
+    @GET
     @Path("/recept/{hrana}")
     public Response recept(@Parameter(description = "hrana", required = true) @PathParam("hrana") String hrana) {
 
         return primerjalnikIzdelkovMetadataBean.recept(hrana);
     }
-    
+
+
 }
