@@ -11,6 +11,7 @@ import javax.ws.rs.ProcessingException;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.time.temporal.ChronoUnit;
@@ -93,6 +94,27 @@ public class primerjalnikIzdelkovMetadataBean {
 
         return resultList.stream().map(primerjalnikIzdelkovMetadataConverter::toDto).collect(Collectors.toList());
 
+    }
+
+    public Response recept(String hrana) {
+
+        log.info("Calling currency API from RapidAPI marketplace");
+
+        try {
+            WebTarget target = httpClient.target("https://tasty.p.rapidapi.com/recipes/auto-complete")
+                    .queryParam("hrana", hrana);
+
+            Response response = target.request()
+                    .header("X-RapidAPI-Key", "89fb19875bmsh587f5c2b402a175p14f26fjsnb4cb50778b70")
+                    .header("X-RapidAPI-Host", "tasty.p.rapidapi.com")
+                    .get();
+
+            return response;
+        }
+        catch (WebApplicationException | ProcessingException e) {
+            log.severe(e.getMessage());
+            throw new InternalServerErrorException(e);
+        }
     }
 
     public Response getTrgovinaByTrgovinaFallback(String trgovina) {
